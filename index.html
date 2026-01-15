@@ -1,64 +1,80 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>usa</title>
-
   <style>
-    body{
-      margin:0;
-      padding:48px 24px;
-      font:14px/1.6 system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial;
-      color:#111;
+    /* Minimal, SANAA-like: centered text blocks in a tall white field */
+    html, body { height: 100%; }
+    body {
+      margin: 0;
+      background: #fff;
+      color: #000;
+      /* SANAA looks close to default serif; force a classic serif stack */
+      font-family: "Times New Roman", Times, serif;
+      font-size: 14px;
+      line-height: 1.25;
     }
-    a{
-      color:#111;
-      text-decoration:none;
+
+    /* A full-height stage where we place two “bands” */
+    .stage {
+      height: 100vh;
+      position: relative;
     }
-    a:hover{
-      text-decoration:underline;
-      text-underline-offset:3px;
+
+    /* Centered blocks */
+    .center {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 92%;
+      max-width: 980px;
+      text-align: center;
+      white-space: nowrap; /* keeps the title on one line like SANAA */
     }
-    .wrap{
-      max-width:900px;
+
+    /* Approximate vertical placement from the screenshot */
+    .title {
+      top: 38%;
+      font-size: 16px;
     }
-    .top{
-      display:flex;
-      justify-content:space-between;
-      gap:16px;
-      margin-bottom:48px;
+
+    .contact {
+      top: 58%;
+      font-size: 12px;
+      line-height: 1.3;
+      white-space: normal; /* allow wrapping for the long contact line */
     }
-    .muted{
-      color:#666;
+
+    a {
+      color: inherit;
+      text-decoration: none; /* SANAA looks like plain text */
     }
-    ul{
-      list-style:none;
-      padding:0;
-      margin:0;
-      display:flex;
-      flex-direction:column;
-      gap:10px;
+    a:hover { text-decoration: underline; text-underline-offset: 2px; }
+
+    /* Mobile: allow title to wrap if needed */
+    @media (max-width: 520px) {
+      .title { white-space: normal; }
+      .title { font-size: 15px; }
+      .contact { font-size: 12px; }
     }
   </style>
 </head>
-
 <body>
-  <main class="wrap">
-    <div class="top">
-      <div><strong>usa</strong></div>
-      <div class="muted">
-        Milan / Melbourne<br>
-        <a href="mailto:hello@usa.consulting">hello@usa.consulting</a>
-      </div>
+  <div class="stage">
+    <div class="center title">
+      Alexei Haddad / u s a
     </div>
 
-    <ul>
-      <li><a href="work.html">Work</a></li>
-      <li><a href="news.html">News</a></li>
-      <li><a href="about.html">About</a></li>
-      <li><a href="contact.html">Contact</a></li>
-    </ul>
-  </main>
+    <div class="center contact">
+      If you would like to contact us, please send an e-mail to:
+      <a href="mailto:hello@usa.consulting">hello@usa.consulting</a>
+      &nbsp;|&nbsp;
+      <a href="mailto:press@usa.consulting">press@usa.consulting</a>
+      &nbsp;|&nbsp;
+      <a href="mailto:work@usa.consulting">work@usa.consulting</a>
+    </div>
+  </div>
 </body>
 </html>
